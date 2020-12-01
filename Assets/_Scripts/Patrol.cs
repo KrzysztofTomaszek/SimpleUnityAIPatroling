@@ -22,6 +22,7 @@ public class Patrol: MonoBehaviour
 
     void Update()
     {
-        if(!agent.pathPending && agent.remainingDistance < 0.3f && pathPoints.Length != 0) GotoToPoint();
+        if(pathPoints.Length == 0) enabled = false;
+        if(!agent.pathPending && agent.remainingDistance < 0.3f && pathPoints.Length != 0) GotoToPoint();        
     }
 }
