@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
+using System;
 
 
 public class Patrol: MonoBehaviour
@@ -18,6 +19,13 @@ public class Patrol: MonoBehaviour
     {        
         agent.destination = pathPoints[destinationPoint].position;
         destinationPoint = (destinationPoint + 1) % pathPoints.Length;
+    }
+
+    void AddPatrolPoint(Transform patrolPoint)
+    {
+        Array.Resize(ref pathPoints, pathPoints.Length + 1);
+        pathPoints[pathPoints.Length] = patrolPoint;         
+        enabled = true;
     }
 
     void Update()
